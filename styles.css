@@ -1,0 +1,210 @@
+:root {
+  --tag-color: #dfa6a2;
+  --main-color: #d1d0b7;
+  --nav-color: #81968f;
+  --text-color: rgba(104, 99, 95, 1);
+  --button-color: #eccfc1;
+  --text-color-lighter: rgba(104, 99, 95, 0.7);
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: Roboto;
+  background: var(--main-color);
+}
+
+h3 {
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+header {
+  color: #fff;
+  display: block;
+  position: fixed;
+  z-index: 1;
+  padding: 1rem;
+  width: 100vw;
+  background: var(--nav-color);
+  font-size: 1rem;
+  text-align: center;
+}
+
+main {
+  color: var(--text-color);
+  font-family: "Open Sans";
+  padding: 6rem 1rem 6rem 1rem;
+}
+
+.profile-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.profile-pic {
+  height: 10rem;
+  border-radius: 90%;
+  margin: 0.5rem;
+}
+
+article {
+  display: block;
+  padding: 0.5rem;
+  margin: 1rem;
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+}
+
+article p {
+  margin-bottom: 1rem;
+  margin: 0.5rem;
+}
+
+article h3 {
+  margin-left: 0.5rem;
+}
+
+article button {
+  display: block;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+article ul {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  width: inherit;
+  padding: 0;
+}
+
+article li {
+  margin-left: 0.5rem;
+}
+
+article li a {
+  color: #dfa6a2;
+  text-decoration: none;
+}
+
+article button {
+  border: none;
+  border-radius: 10px;
+  background: var(--button-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+}
+
+article button:hover {
+  background: var(--tag-color);
+  color: #fff;
+}
+
+.skill-tags ul {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 0 1rem 0;
+}
+
+.skill-tags li {
+  border-radius: 10px;
+  text-align: center;
+  background: var(--tag-color);
+  color: #fff;
+  width: 3rem;
+}
+
+.checked {
+  display: block;
+  position: absolute;
+  right: 0.3rem;
+  top: -0.5rem;
+  background-image: url(./images/bookmark.svg);
+  width: 1rem;
+  height: 1.3rem;
+}
+
+.unchecked {
+  display: block;
+  position: absolute;
+  right: 0.3rem;
+  top: -0.5rem;
+  width: 1rem;
+  height: 1.3rem;
+}
+
+textarea {
+  color: var(--text-color);
+  border: 1px dotted var(--tag-color);
+  border-radius: 10px;
+  margin-left: 0.5rem;
+}
+
+textarea::placeholder {
+  color: var(--text-color);
+}
+
+footer {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  width: 100vw;
+  background: var(--nav-color);
+}
+
+footer ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 1.5rem;
+  align-items: center;
+}
+
+footer li {
+  padding: 0 1rem 0 1rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.f-home img,
+.f-create img,
+.f-profile img {
+  width: 2rem;
+}
+
+.f-bookmark img {
+  width: 1.5rem;
+}
+
+blockquote {
+  padding: 1.5rem;
+}
+
+blockquote p {
+  quotes: '"';
+  color: var(--text-color-lighter);
+  font-style: italic;
+  text-indent: -1.2rem;
+}
+
+blockquote p:before {
+  content: open-quote;
+  color: var(--tag-color);
+  font-size: 3rem;
+  line-height: 3rem;
+}
