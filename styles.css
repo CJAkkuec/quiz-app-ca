@@ -153,6 +153,27 @@ article button:focus {
   padding: 0 0 1rem 0;
 }
 
+.skill-tags li {
+  border-radius: 10px;
+  text-align: center;
+  background: var(--tag-color);
+  color: #fff;
+  width: 4rem;
+}
+
+/* Seltsame Sache */
+
+.skill-tags a:before {
+  display: inline-block;
+  content: "✨";
+  font-size: 1rem;
+}
+.skill-tags a:after {
+  display: inline-block;
+  content: "1";
+  color: #fff;
+}
+
 blockquote {
   padding: 1.5rem;
 }
@@ -169,14 +190,6 @@ blockquote p:before {
   color: var(--tag-color);
   font-size: 3rem;
   line-height: 3rem;
-}
-
-.skill-tags li {
-  border-radius: 10px;
-  text-align: center;
-  background: var(--tag-color);
-  color: #fff;
-  width: 3rem;
 }
 
 .checked {
