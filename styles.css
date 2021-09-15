@@ -11,7 +11,7 @@
     --text-color-lighter: rgba(104, 99, 95, 0.7);
 
     /* Fonts */
-    --deco-font: Roboto;
+    --deco-font: "Permanent Marker";
     --main-font: "Open Sans";
   }
 }
@@ -29,7 +29,7 @@
     --text-color-lighter: #fff;
 
     /* Fonts */
-    --deco-font: Roboto;
+    --deco-font: "Permanent Marker";
     --main-font: "Open Sans";
   }
 }
@@ -41,6 +41,10 @@
 body {
   font-family: var(--deco-font);
   background: var(--main-color);
+}
+
+header h1 {
+  font-size: 2.3rem;
 }
 
 h3 {
@@ -138,10 +142,33 @@ article button:hover {
   color: #fff;
 }
 
+article button:focus {
+  border: 1px dotted var(--nav-color);
+  color: #fff;
+}
+
 .skill-tags ul {
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 0 0 1rem 0;
+}
+
+blockquote {
+  padding: 1.5rem;
+}
+
+blockquote p {
+  quotes: '"';
+  color: var(--text-color-lighter);
+  font-style: italic;
+  text-indent: -1.2rem;
+}
+
+blockquote p:before {
+  content: open-quote;
+  color: var(--tag-color);
+  font-size: 3rem;
+  line-height: 3rem;
 }
 
 .skill-tags li {
@@ -259,22 +286,4 @@ footer a {
   width: 2rem;
   height: 2rem;
   object-fit: scale-down;
-}
-
-blockquote {
-  padding: 1.5rem;
-}
-
-blockquote p {
-  quotes: '"';
-  color: var(--text-color-lighter);
-  font-style: italic;
-  text-indent: -1.2rem;
-}
-
-blockquote p:before {
-  content: open-quote;
-  color: var(--tag-color);
-  font-size: 3rem;
-  line-height: 3rem;
 }
