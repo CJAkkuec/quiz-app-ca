@@ -1,3 +1,5 @@
+/* Light Mode */
+
 @media (prefers-color-scheme: light) {
   :root {
     /* Colors */
@@ -14,7 +16,41 @@
     --deco-font: "Permanent Marker";
     --main-font: "Open Sans";
   }
+
+  .home-i,
+  .bookmark-i,
+  .create-i,
+  .profile-i {
+    fill: var(--main-color);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .home-i:hover,
+  .bookmark-i:hover,
+  .create-i:hover,
+  .profile-i:hover {
+    fill: var(--article-color);
+    transition: fill 0.3s ease-in;
+  }
+
+  .active-page > svg {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+      fill: var(--main-color);
+    }
+    100% {
+      fill: var(--article-color);
+    }
+  }
 }
+
+/* Dark Mode */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -32,7 +68,41 @@
     --deco-font: "Permanent Marker";
     --main-font: "Open Sans";
   }
+
+  .home-i,
+  .bookmark-i,
+  .create-i,
+  .profile-i {
+    fill: var(--main-color);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .home-i:hover,
+  .bookmark-i:hover,
+  .create-i:hover,
+  .profile-i:hover {
+    fill: var(--text-color);
+    transition: fill 0.3s ease-in;
+  }
+
+  .active-page > svg {
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+      fill: var(--main-color);
+    }
+    100% {
+      fill: var(--text-color);
+    }
+  }
 }
+
+/* Base */
 
 * {
   margin: 0;
@@ -140,6 +210,8 @@ article button {
 article button:hover {
   background: var(--tag-color);
   color: #fff;
+
+  transition: all 0.3s ease-in;
 }
 
 article button:focus {
@@ -159,19 +231,6 @@ article button:focus {
   background: var(--tag-color);
   color: #fff;
   width: 4rem;
-}
-
-/* Seltsame Sache */
-
-.skill-tags a:before {
-  display: inline-block;
-  content: "✨";
-  font-size: 1rem;
-}
-.skill-tags a:after {
-  display: inline-block;
-  content: "1";
-  color: #fff;
 }
 
 blockquote {
@@ -199,12 +258,9 @@ blockquote p:before {
   top: -0.5rem;
   width: 1rem;
   height: 1.3rem;
-}
-.checked:hover {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+
+  animation: bouncey 7s infinite;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
 .unchecked {
@@ -214,50 +270,36 @@ blockquote p:before {
   top: -0.5rem;
   width: 1rem;
   height: 1.3rem;
+
+  animation: bouncey 7s infinite;
+  animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 
-.unchecked:hover {
-  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-@keyframes shake {
-  10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
+@keyframes bouncey {
+  0% {
+    transform: scale(1, 1) translateY(0);
   }
-
-  20%,
-  80% {
-    transform: translate3d(1px, 0, 0);
+  84% {
+    transform: scale(1, 1) translateY(0);
   }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-2px, 0, 0);
+  85% {
+    transform: scale(1.1, 0.9) translateY(0);
   }
-
-  40%,
-  60% {
-    transform: translate3d(2px, 0, 0);
+  94% {
+    transform: scale(0.9, 1.1) translateY(-10px);
   }
-}
-
-textarea {
-  background: var(--article-color);
-  color: var(--text-color);
-  border: 1px dotted var(--tag-color);
-  border-radius: 10px;
-  margin-left: 0.5rem;
-  width: 60%;
-  padding: 0.5rem;
-}
-
-textarea::placeholder {
-  color: var(--text-color-lighter);
+  97% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  98% {
+    transform: scale(1, 1) translateY(5px);
+  }
+  99% {
+    transform: scale(1, 1) translateY(-3px);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
 }
 
 footer {
@@ -281,10 +323,6 @@ footer a:hover {
   transition: 0.3s ease-in-out;
 }
 
-.active-p {
-  background: var(--nav-color-lighter);
-}
-
 footer a {
   display: block;
   text-decoration: none;
@@ -292,11 +330,51 @@ footer a {
   padding: 1.5rem;
 }
 
-.f-home img,
-.f-create img,
-.f-profile img,
-.f-bookmark img {
-  width: 2rem;
-  height: 2rem;
-  object-fit: scale-down;
+.create-form legend {
+  font-size: 1.5rem;
+}
+.create-form fieldset {
+  border: none;
+}
+
+.create-form p {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-button {
+  display: block;
+  width: fit-content;
+  border: none;
+  border-radius: 10px;
+  background: var(--button-color);
+  color: var(--text-color);
+  padding: 0.5rem;
+}
+
+.form-button:hover {
+  background: var(--tag-color);
+  color: #fff;
+
+  transition: all 0.3s ease-in;
+}
+
+.form-button:focus {
+  border: 1px dotted var(--nav-color);
+  color: #fff;
+}
+
+textarea {
+  font-family: "Open Sans";
+  background: var(--article-color);
+  color: var(--text-color);
+  border: 1px dotted var(--tag-color);
+  border-radius: 10px;
+  margin-top: 1rem;
+  width: 60%;
+  padding: 0.5rem;
+}
+
+textarea::placeholder {
+  color: var(--text-color-lighter);
 }
