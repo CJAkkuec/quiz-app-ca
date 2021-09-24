@@ -26,131 +26,7 @@
         <h1>Quiz-App</h1>
       </header>
 
-      <main>
-        <article class="questions">
-          <img class="bookmark" />
-          <h3>Question</h3>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              vitae perspiciatis corporis repellat assumenda. Explicabo
-              repudiandae quae numquam ipsa ea minus debitis corporis veritatis
-              doloremque! Labore quisquam distinctio esse laboriosam?
-            </p>
-            <div class="answer-section">
-              <button class="answer-toggle">Show Answer</button>
-              <p class="answer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                vitae perspiciatis corporis repellat assumenda. Explicabo
-                repudiandae quae numquam ipsa ea minus debitis corporis
-                veritatis doloremque! Labore quisquam distinctio esse
-                laboriosam?
-              </p>
-            </div>
-            <div class="tags">
-              <ul>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="questions">
-          <img class="bookmark" />
-          <h3>Question</h3>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              vitae perspiciatis corporis repellat assumenda. Explicabo
-              repudiandae quae numquam ipsa ea minus debitis corporis veritatis
-              doloremque! Labore quisquam distinctio esse laboriosam?
-            </p>
-            <div class="answer-section">
-              <button class="answer-toggle">Show Answer</button>
-              <p class="answer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                vitae perspiciatis corporis repellat assumenda. Explicabo
-                repudiandae quae numquam ipsa ea minus debitis corporis
-                veritatis doloremque! Labore quisquam distinctio esse
-                laboriosam?
-              </p>
-            </div>
-            <div class="tags">
-              <ul>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="questions">
-          <img class="bookmark" />
-          <h3>Question</h3>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              vitae perspiciatis corporis repellat assumenda. Explicabo
-              repudiandae quae numquam ipsa ea minus debitis corporis veritatis
-              doloremque! Labore quisquam distinctio esse laboriosam?
-            </p>
-            <div class="answer-section">
-              <button class="answer-toggle">Show Answer</button>
-              <p class="answer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                vitae perspiciatis corporis repellat assumenda. Explicabo
-                repudiandae quae numquam ipsa ea minus debitis corporis
-                veritatis doloremque! Labore quisquam distinctio esse
-                laboriosam?
-              </p>
-            </div>
-            <div class="tags">
-              <ul>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-
-        <article class="questions">
-          <img class="bookmark" />
-          <h3>Question</h3>
-          <div>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-              vitae perspiciatis corporis repellat assumenda. Explicabo
-              repudiandae quae numquam ipsa ea minus debitis corporis veritatis
-              doloremque! Labore quisquam distinctio esse laboriosam?
-            </p>
-            <div class="answer-section">
-              <button class="answer-toggle">Show Answer</button>
-              <p class="answer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus
-                vitae perspiciatis corporis repellat assumenda. Explicabo
-                repudiandae quae numquam ipsa ea minus debitis corporis
-                veritatis doloremque! Labore quisquam distinctio esse
-                laboriosam?
-              </p>
-            </div>
-            <div class="tags">
-              <ul>
-                <li><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-              </ul>
-            </div>
-          </div>
-        </article>
-      </main>
+      <main id="questions-home"></main>
     </section>
     <!-- Bookmarks -->
     <section class="page" id="bookmarked">
@@ -158,9 +34,9 @@
         <h1>Bookmarks</h1>
       </header>
 
-      <main>
+      <main id="bookmarked-home">
         <article>
-          <img class="checked" src="./images/bookmark-p.svg " />
+          <img class="checked" />
           <h3>Question</h3>
           <div>
             <p>
@@ -182,7 +58,7 @@
         </article>
 
         <article>
-          <img class="checked" src="./images/bookmark-p.svg " />
+          <img class="checked" />
           <h3>Question</h3>
           <div>
             <p>
@@ -212,15 +88,15 @@
 
       <main>
         <article class="create-form">
-          <form action="." method="post" class="hform">
+          <form action="." method="post" class="hform" id="myform">
             <fieldset>
               <legend>Create your own card</legend>
 
               <p>
                 <label>Add your question</label>
                 <textarea
-                  id="c-questionn"
-                  name="new question"
+                  id="c-question"
+                  name="newquestion"
                   rows="5"
                   placeholder="Question!"
                 ></textarea>
@@ -229,7 +105,7 @@
                 <label>Add your answer</label>
                 <textarea
                   id="c-answer"
-                  name="new answer"
+                  name="newanswer"
                   rows="5"
                   placeholder="Answer!"
                 ></textarea>
@@ -238,7 +114,7 @@
                 <label>Add your tags</label>
                 <textarea
                   id="c-tags"
-                  name="new tags"
+                  name="newtags"
                   rows="5"
                   placeholder="Tags separated by ','"
                 ></textarea>
@@ -251,7 +127,6 @@
                 name="submit"
                 value="Submit"
                 class="form-button"
-                disabled="disabled"
               />
             </p>
           </form>
