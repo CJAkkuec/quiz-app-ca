@@ -55,12 +55,18 @@ answerSections.forEach((answerSection) => {
 const form = document.querySelector("form");
 
 const questionCards = [
-  { newQuestion: "Question 1", newAnswer: "Answer 1", newTags: "1,2,3,4" },
+  {
+    newQuestion: "Question 1",
+    newAnswer: "Answer 1",
+    newTags: "1,2,3,4",
+    isBookmarked: false,
+  },
 
   {
     newQuestion: "Question 2",
     newAnswer: "Answer 2",
     newTags: "1,2,3,4",
+    isBookmarked: false,
   },
 ];
 
@@ -71,6 +77,7 @@ form.addEventListener("submit", (event) => {
     newQuestion: form.elements.newquestion.value,
     newAnswer: form.elements.newanswer.value,
     newTags: form.elements.newtags.value,
+    isBookmarked: false,
   };
 
   questionCards.push(newInput);
@@ -85,27 +92,29 @@ form.addEventListener("submit", (event) => {
 const createQuestionsHtml = (questionCards) => {
   let html = "";
 
-  questionCards.forEach((questionCard) => {
+  questionCards.forEach((questionCard, index) => {
     /*Tag Array + Split */
     const tags = questionCard.newTags.split(",");
     let tagsList = "";
     tags.forEach((tag) => {
       tagsList = tagsList + `<li><a href="">${tag}</a></li>`;
     });
-    console.log(tags);
+
+    /*NEU: + Zeile 110 > bookmarkedClass */
+    const bookmarkedClass = questionCard.isBookmarked ? " checked" : ""; //Hier vielleicht?
 
     html =
       html +
       `
     <article class="questions">
-          <img class="bookmark" />
+          <img class="bookmark${bookmarkedClass}" data-index="${index}" />
           <h3>Question</h3>
           <div>
             <p>
             ${questionCard.newQuestion}
             </p>
             <div class="answer-section">
-              <button class="answer-toggle">Show Answer</button>
+              <button class="answer-toggle" data-index="${index}" >Show Answer</button>
               <p class="answer">
               ${questionCard.newAnswer}
               </p>
@@ -130,6 +139,17 @@ const renderQuestions = () => {
 
   const answerSections = document.querySelectorAll(".answer-section");
 
+  /*Bookmarked Questions */
+
+  const bookmarkedQuestions = questionCards.filter((questionCard) => {
+    return questionCard.isBookmarked;
+  });
+
+  const bookmarkedQuestionsHtml = createQuestionsHtml(bookmarkedQuestions);
+  const bookmarkedQuestionsContainer =
+    document.querySelector("#bookmarked-home");
+  bookmarkedQuestionsContainer.innerHTML = bookmarkedQuestionsHtml;
+
   /* Answer Toggle*/
   answerSections.forEach((answerSection) => {
     const button = answerSection.querySelector(".answer-toggle");
@@ -145,6 +165,10 @@ const renderQuestions = () => {
   bookmarks.forEach((bookmark) => {
     bookmark.addEventListener("click", () => {
       bookmark.classList.toggle("checked");
+
+      const index = bookmark.dataset.index;
+      questionCards[index].isBookmarked = !questionCards[index].isBookmarked;
+      renderQuestions();
     });
   });
 };
