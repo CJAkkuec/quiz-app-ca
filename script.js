@@ -28,28 +28,6 @@ links.forEach((link) => {
   });
 });
 
-/* Bookmark Toggle
-
-const bookmarks = document.querySelectorAll(".bookmark");
-
-bookmarks.forEach((bookmark) => {
-  bookmark.addEventListener("click", () => {
-    bookmark.classList.toggle("checked");
-  });
-}); */
-
-/* Answer Toggle 
-
-const answerSections = document.querySelectorAll(".answer-section");
-
-answerSections.forEach((answerSection) => {
-  const button = answerSection.querySelector(".answer-toggle");
-  const answer = answerSection.querySelector(".answer");
-  button.addEventListener("click", () => {
-    answer.classList.toggle("show");
-  });
-}); */
-
 /* Form Script */
 
 const form = document.querySelector("form");
@@ -175,9 +153,9 @@ const renderQuestions = () => {
 
 renderQuestions();
 
-/* Active State (Fade-In) (Alternative 2 + Fade-In ausprobieren)*/
+/*In For Each umwandeln*/
 
-/* homeIcon.addEventListener("click", () => {
+homeIcon.addEventListener("click", () => {
   icons.forEach((icon) => {
     icon.classList.remove("active-page");
   });
@@ -204,4 +182,3 @@ profileIcon.addEventListener("click", () => {
   });
   profileIcon.classList.add("active-page");
 });
-*/
